@@ -9,6 +9,9 @@ configureMongoose();
 
 const app = express();
 
+// Our cross origin resource sharing middlewares
+app.use(cors());
+
 // Our public folder setup middleware
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -22,9 +25,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // Our router middleware
 app.use('/places', placesRouter);
-
-// Our cross origin resource sharing middlewares
-app.use(cors());
 
 app.get('/', (req, res) => {
 	res.redirect('/places');

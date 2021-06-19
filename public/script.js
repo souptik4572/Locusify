@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 let uniqueData = {};
 const fetchUniqueAttributeData = async () => {
-	axios('localhost:3000/places/unique')
+	axios
+		.get('localhost:3000/places/unique')
 		.then((response) => {
 			console.log(response);
 		})

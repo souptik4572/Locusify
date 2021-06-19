@@ -55,11 +55,12 @@ const getAllPlaces = async (req, res) => {
 
 	// Defining our find object to fetch data from mongo
 	const findObject = {};
-	if (name) findObject.name = name;
-	if (location) findObject.location = location;
+	if (name) findObject.name = { $regex: name, $options: 'i' };
+	if (location) findObject.location = { $regex: location, $options: 'i' };
 
 	try {
 		const places = await Place.find(findObject);
+		console.log(places);
 		res.render('index', {
 			places,
 			isNewForm: false,
@@ -67,7 +68,7 @@ const getAllPlaces = async (req, res) => {
 			location: location ? location : '',
 		});
 	} catch (error) {
-		console.log('Oops got an error while finding all possible places');
+		console.log('Oops got an error while finding all possible places', error);
 	}
 };
 
