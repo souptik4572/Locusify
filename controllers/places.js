@@ -10,7 +10,7 @@ const getEditPlaceForm = async (req, res) => {
 	const { id } = req.params;
 	try {
 		const place = await Place.findById(id);
-		res.render('editPlace', { place, isNewForm: false });
+		res.render('editPlace', { place, isNewForm: true });
 	} catch (error) {
 		console.log('Oops encountered an error while getting a particular place');
 	}
