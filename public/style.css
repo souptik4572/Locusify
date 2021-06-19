@@ -58,7 +58,7 @@ body {
 
 .rightSide a,
 .rightSide form button {
-	margin: 0px 20px;
+	margin: 0px 1rem;
 }
 
 .places-list .collection.not-found p {

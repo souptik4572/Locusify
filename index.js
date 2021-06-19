@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const methodOverride = require('method-override');
 const placesRouter = require('./routes/places');
 
@@ -21,6 +22,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // Our router middleware
 app.use('/places', placesRouter);
+
+// Our cross origin resource sharing middlewares
+app.use(cors());
 
 app.get('/', (req, res) => {
 	res.redirect('/places');
