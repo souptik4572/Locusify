@@ -1,15 +1,17 @@
-<nav class="our-navbar pink lighten-2">
-	<div class="nav-wrapper pink lighten-2 container">
+<% const activeAllPlaces = !isNewForm ? "active" : "" %> <% const activeForm = isNewForm ? "active"
+: "" %>
+<nav class="our-navbar light-blue accent-3">
+	<div class="nav-wrapper light-blue accent-3 container">
 		<a href="/" class="brand-logo center">Place Finder</a>
 		<a href="#" data-target="mobile-demo" class="sidenav-trigger">
 			<i class="material-icons">menu</i>
 		</a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li>
-				<a href="/places/new">Add New Place</a>
-			</li>
-			<li>
+			<li class="<%= activeAllPlaces %>">
 				<a href="/places">All Places</a>
+			</li>
+			<li class="<%= activeForm %>">
+				<a href="/places/new">Add New Place</a>
 			</li>
 		</ul>
 	</div>
