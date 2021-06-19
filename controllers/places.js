@@ -16,6 +16,17 @@ const getEditPlaceForm = async (req, res) => {
 	}
 };
 
+const getUniqueAttributeData = async (req, res) => {
+	const uniqueData = {};
+	try {
+		uniqueData.names = await Place.find().distinct('name');
+		uniqueData.locations = await Place.find().distinct('location');
+		res.send(uniqueData);
+	} catch (error) {
+		console.log('Oops got an error while fetching unique data');
+	}
+};
+
 // Edit existing place
 const editExistingPlace = async (req, res) => {
 	const { id } = req.params;
@@ -73,6 +84,7 @@ const createNewPlace = async (req, res) => {
 
 module.exports = {
 	getNewPlaceForm,
+	getUniqueAttributeData,
 	getEditPlaceForm,
 	editExistingPlace,
 	deleteExistingPlace,

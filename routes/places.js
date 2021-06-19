@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const {
 	getNewPlaceForm,
+	getUniqueAttributeData,
 	getEditPlaceForm,
 	editExistingPlace,
 	deleteExistingPlace,
@@ -9,6 +10,8 @@ const {
 } = require('../controllers/places');
 
 router.get('/new', getNewPlaceForm);
+
+router.get('/unique', getUniqueAttributeData);
 
 router.get('/:id/edit', getEditPlaceForm);
 
