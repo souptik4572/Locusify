@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const { getAllPlaces, createNewPlace } = require('../controllers/places');
+const { getNewPlaceForm, getAllPlaces, createNewPlace } = require('../controllers/places');
+
+router.get('/new', getNewPlaceForm);
 
 router.get('/', getAllPlaces);
 

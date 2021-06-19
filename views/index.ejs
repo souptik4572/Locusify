@@ -1,0 +1,49 @@
+<%- include('templates/header.ejs') %> <%- include('./navbar.ejs', { isNewForm }) %>
+<div class="allPlaces">
+	<div class="container search-form">
+		<ul class="collection with-header">
+			<li class="collection-header"><h5>Search Places Form</h5></li>
+			<form action="/places" method="GET">
+				<div class="row">
+					<div class="input-field col l5 s12">
+						<input name="name" id="place_name" type="text" class="validate" />
+						<label for="place_name">Place Name</label>
+					</div>
+					<div class="input-field col l5 s12">
+						<input name="location" id="place_location" type="text" class="validate" />
+						<label for="place_location">Place Location</label>
+					</div>
+					<div class="input-field col l2 s12">
+						<button class="btn waves-effect waves-light" type="submit">
+							<i class="material-icons left">search</i>
+							search
+						</button>
+					</div>
+				</div>
+			</form>
+		</ul>
+	</div>
+	<div class="container places-list">
+		<ul class="collection with-header">
+			<li class="collection-header"><h5>List of Places</h5></li>
+			<% places.forEach((aPlace) => { %>
+			<li class="collection-item avatar">
+				<i class="material-icons circle">place</i>
+				<span class="title"><%= aPlace.name %></span>
+				<p>Location: <%= aPlace.location %></p>
+			</li>
+			<% }) %>
+		</ul>
+	</div>
+	<div class="fixed-action-btn">
+		<a
+			href="/places/new"
+			data-position="left"
+			data-tooltip="Add a new place"
+			class="tooltipped btn-floating btn-large orange pulse"
+		>
+			<i class="large material-icons">add</i>
+		</a>
+	</div>
+</div>
+<%- include('templates/footer.ejs') %>

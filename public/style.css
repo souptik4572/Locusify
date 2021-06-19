@@ -1,0 +1,44 @@
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.main {
+	flex: 1 0 auto;
+}
+
+.allPlaces .container.places-list {
+	margin: 3rem auto 5rem auto;
+}
+
+.allPlaces .container.search-form {
+	margin: 3rem auto 0px auto;
+	text-align: center;
+}
+
+.new-place {
+	display: grid;
+	place-items: center;
+	text-align: center;
+}
+
+.collection-header {
+	text-align: center;
+}
+
+.collection .collection-item.avatar {
+	min-height: 0px;
+}
+
+.allPlaces .s2 {
+	text-align: center;
+}
+
+.allPlaces .row {
+	margin: 20px 20px 10px 20px;
+}
+
+.allPlaces i {
+	margin: 0px;
+}
