@@ -60,7 +60,6 @@ const getAllPlaces = async (req, res) => {
 
 	try {
 		const places = await Place.find(findObject);
-		console.log(places);
 		res.render('index', {
 			places,
 			isNewForm: false,
