@@ -1,0 +1,50 @@
+<%- include('templates/header.ejs') %> <%- include('./navbar.ejs', { isNewForm }) %>
+<div class="new-place">
+	<h1>Edit Place #<%= place._id %></h1>
+	<div class="container">
+		<div class="row">
+			<div class="container">
+				<form class="col s12" action="/places/<%= place._id %>?_method=PUT" method="POST">
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">domain</i>
+							<input
+								id="place_name"
+								type="text"
+								class="validate"
+								name="place[name]"
+								value="<%= place.name %>"
+								required
+							/>
+							<label for="job_title">Place Name</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">add_location</i>
+							<input
+								id="place_location"
+								type="text"
+								class="validate"
+								name="place[location]"
+								value="<%= place.location %>"
+								required
+							/>
+							<label for="place_location">Place Location</label>
+						</div>
+					</div>
+					<div class="row">
+						<button
+							class="btn waves-effect waves-light cyan"
+							type="submit"
+							name="action"
+						>
+							Submit Edited Place
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<%- include('templates/footer.ejs') %>

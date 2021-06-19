@@ -1,4 +1,5 @@
 const express = require('express');
+const methodOverride = require('method-override');
 const placesRouter = require('./routes/places');
 
 // Configuring our MongoDb database with mongoose
@@ -10,6 +11,9 @@ const app = express();
 // Our public folder setup middleware
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
+
+// Our method override middlewares
+app.use(methodOverride('_method'));
 
 // Our body-parser middlewares
 app.use(express.json());

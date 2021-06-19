@@ -42,3 +42,21 @@ body {
 .allPlaces i {
 	margin: 0px;
 }
+
+.places-list .collection-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.rightSide {
+	width: 50%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.rightSide a,
+.rightSide form button {
+	margin: 0px 20px;
+}

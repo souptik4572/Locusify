@@ -5,6 +5,39 @@ const getNewPlaceForm = (req, res) => {
 	res.render('newPlace', { isNewForm: true });
 };
 
+// Getting edit places form
+const getEditPlaceForm = async (req, res) => {
+	const { id } = req.params;
+	try {
+		const place = await Place.findById(id);
+		res.render('editPlace', { place, isNewForm: false });
+	} catch (error) {
+		console.log('Oops encountered an error while getting a particular place');
+	}
+};
+
+// Edit existing place
+const editExistingPlace = async (req, res) => {
+	const { id } = req.params;
+	const { place } = req.body;
+	try {
+		const editedPlace = await Place.findByIdAndUpdate(id, place);
+		res.redirect('/places');
+	} catch (error) {
+		console.log('Oops got an error while editing existing place');
+	}
+};
+
+const deleteExistingPlace = async (req, res) => {
+	const { id } = req.params;
+	try {
+		const deletedPlace = await Place.findByIdAndDelete(id);
+		res.redirect('/places');
+	} catch (error) {
+		console.log('Oops got an error while deleting a particular place');
+	}
+};
+
 // Getting all the available places based on the query params
 const getAllPlaces = async (req, res) => {
 	const { name, location } = req.query;
@@ -35,6 +68,9 @@ const createNewPlace = async (req, res) => {
 
 module.exports = {
 	getNewPlaceForm,
+	getEditPlaceForm,
+	editExistingPlace,
+	deleteExistingPlace,
 	getAllPlaces,
 	createNewPlace,
 };
