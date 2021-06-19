@@ -60,3 +60,9 @@ body {
 .rightSide form button {
 	margin: 0px 20px;
 }
+
+.places-list .collection.not-found p {
+	font-size: 3rem;
+	font-weight: 100;
+	color: #37474f;
+}

@@ -49,7 +49,12 @@ const getAllPlaces = async (req, res) => {
 
 	try {
 		const places = await Place.find(findObject);
-		res.render('index', { places, isNewForm: false });
+		res.render('index', {
+			places,
+			isNewForm: false,
+			name: name ? name : '',
+			location: location ? location : '',
+		});
 	} catch (error) {
 		console.log('Oops got an error while finding all possible places');
 	}
