@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 let uniqueData = {};
 const fetchUniqueAttributeData = async () => {
-	fetch('https://locusify.herokuapp.com/places/unique')
+	axios('localhost:3000/places/unique')
 		.then((response) => {
 			console.log(response);
 		})
