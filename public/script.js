@@ -24,7 +24,7 @@ const initializeAutocomplete = (names = {}, locations = {}) => {
 let uniqueData = {};
 const fetchUniqueAttributeData = async () => {
 	axios
-		.get('http://localhost:3000/places/unique')
+		.get('https://locusify.herokuapp.com/places/unique')
 		.then((response) => {
 			const { names, locations } = response.data;
 			initializeAutocomplete(arrayToObject(names), arrayToObject(locations));
