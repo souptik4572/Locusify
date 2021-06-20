@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 body {
 	display: flex;
 	min-height: 100vh;
@@ -15,6 +17,9 @@ body {
 .allPlaces .container.search-form {
 	margin: 3rem auto 0px auto;
 	text-align: center;
+	padding: 1rem;
+	border: 1px solid #1de9b6;
+	border-radius: 2rem;
 }
 
 .new-place {
@@ -65,4 +70,8 @@ body {
 	font-size: 3rem;
 	font-weight: 100;
 	color: #37474f;
+}
+
+.brand-logo {
+	font-family: 'Pacifico', cursive;
 }

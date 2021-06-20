@@ -1,34 +1,32 @@
 <%- include('templates/header.ejs') %> <%- include('./navbar.ejs', { isNewForm }) %>
 <div class="allPlaces">
 	<div class="container search-form">
-		<ul class="collection with-header">
-			<li class="collection-header"><h5>Search Places Form</h5></li>
-			<form action="/places" method="GET">
-				<div class="row">
-					<div class="input-field col l5 s12">
-						<i class="tiny material-icons prefix">domain</i>
-						<input name="name" id="place_name" type="text" value="<%= name %>" />
-						<label for="place_name">Place Name</label>
-					</div>
-					<div class="input-field col l5 s12">
-						<i class="tiny material-icons prefix">add_location</i>
-						<input
-							name="location"
-							id="place_location"
-							type="text"
-							value="<%= location %>"
-						/>
-						<label for="place_location">Place Location</label>
-					</div>
-					<div class="input-field col l2 s12">
-						<button class="btn waves-effect waves-light cyan" type="submit">
-							<i class="material-icons left">search</i>
-							search
-						</button>
-					</div>
+		<h5>Search Places Form</h5>
+		<form action="/places" method="GET">
+			<div class="row">
+				<div class="input-field col l5 s12">
+					<i class="tiny material-icons prefix">domain</i>
+					<input name="name" id="place_name" type="text" value="<%= name %>" />
+					<label for="place_name">Place Name</label>
 				</div>
-			</form>
-		</ul>
+				<div class="input-field col l5 s12">
+					<i class="tiny material-icons prefix">add_location</i>
+					<input
+						name="location"
+						id="place_location"
+						type="text"
+						value="<%= location %>"
+					/>
+					<label for="place_location">Place Location</label>
+				</div>
+				<div class="input-field col l2 s12">
+					<button class="btn waves-effect waves-light cyan" type="submit">
+						<i class="material-icons left">search</i>
+						search
+					</button>
+				</div>
+			</div>
+		</form>
 	</div>
 	<div class="container places-list">
 		<% if(places.length === 0) { %>
@@ -60,6 +58,7 @@
 					>
 					<form action="/places/<%= aPlace._id %>?_method=DELETE" method="POST">
 						<button
+							id="place_delete"
 							class="
 								tooltipped
 								btn-floating btn-small
